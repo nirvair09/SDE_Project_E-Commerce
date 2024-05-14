@@ -11,7 +11,7 @@ import { TfiGallery } from "react-icons/tfi";
 import styles from "../styles/styles";
 // Import dotenv to use environment variables
 
-const ENDPOINT = "https://sde-project-ecom-socket.onrender.com";
+const ENDPOINT = "http://localhost:4000/";
 const socketId = socketIO(ENDPOINT, { transports: ["websocket"] });
 
 const UserInbox = () => {
