@@ -7,12 +7,12 @@ const Navbar = ({ active }) => {
   return (
     <div className={`block 800px:${styles.noramlFlex}`}>
       {
-        navItems && navItems.map((i, index) => (
-          <div className="flex">
-            <Link to={i.url}
-              className={`${active === index + 1 ? "text-[#17dd1f]" : "text-black 800px:text-[#fff]"} pb-[30px] 800px:pb-0 font-[500] px-6 cursor-pointer bg-[#e2ade4]}`}
+        navItems && navItems.map((item, index) => (
+          <div key={index} className="flex">
+            <Link to={item.url}
+              className={`${active === index + 1 ? "text-[#17dd1f]" : "text-black 800px:text-[#fff]"} pb-[30px] 800px:pb-0 font-[500] px-6 cursor-pointer bg-[#e2ade4]`}
             >
-              {i.title}
+              {item.title}
             </Link>
           </div>
         ))

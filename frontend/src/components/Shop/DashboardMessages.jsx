@@ -11,7 +11,7 @@ import socketIO from "socket.io-client";
 import { format } from "timeago.js";
 // Import dotenv to use environment variables
 
-const ENDPOINT = "https://sde-project-ecom-socket.onrender.com";
+const ENDPOINT = "http://localhost:4000/";
 
 const socketId = socketIO(ENDPOINT, { transports: ["websocket"] });
 

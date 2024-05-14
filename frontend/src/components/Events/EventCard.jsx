@@ -10,6 +10,9 @@ const EventCard = ({ active, data }) => {
   const { cart } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
+  // Check if data is undefined
+  if (!data) return null;
+
   const addToCartHandler = (data) => {
     const isItemExists = cart && cart.find((i) => i._id === data._id);
     if (isItemExists) {
@@ -24,14 +27,16 @@ const EventCard = ({ active, data }) => {
       }
     }
   }
+
   return (
     <div
-      className={`w-full block bg-white rounded-lg ${
-        active ? "unset" : "mb-12"
-      } lg:flex p-2`}
+      className={`w-full block bg-white rounded-lg ${active ? "unset" : "mb-12"
+        } lg:flex p-2`}
     >
       <div className="w-full lg:-w[50%] m-auto">
-        <img src={`${data.images[0]?.url}`} alt="" />
+        {data.images && data.images.length > 0 && (
+          <img src={`${data.images[0]?.url}`} alt="" />
+        )}
       </div>
       <div className="w-full lg:[w-50%] flex flex-col justify-center">
         <h2 className={`${styles.productTitle}`}>{data.name}</h2>
